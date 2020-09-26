@@ -1,6 +1,7 @@
 #include <stdio.h>
-
-int k=0;
+int player=1;
+int choice;
+int i;
 char square[3][3] = {{'1', '2','3'} ,{'4', '5', '6'} ,{'7', '8', '9'}};
 
 
@@ -21,7 +22,7 @@ void board()
 }
 
 
-int insert(int choice,char mark,int player)
+int insert(int choice,char mark)
 {     int k=0;
     if (choice == 1 && square[0][0] == '1')
             square[0][0] = mark;
@@ -52,8 +53,8 @@ int insert(int choice,char mark,int player)
 
         else
         {
-            printf("Invalid move ");
-            k=1;
+            printf("Invalid move");
+            player--;
             getch();
         }
 }
@@ -96,8 +97,9 @@ int isWinning()
 
 
 int main(){
-    int player = 1, i, choice;
+    i, choice;
     char mark;
+      player=1;
     do{
         board();
        player = (player % 2) ? 1 : 2;
@@ -124,19 +126,16 @@ int main(){
                 mark='O';
             }
         */
-        insert(choice,mark,player);
+        insert(choice,mark);
         i = isWinning();
-    if (k!=1)
-        {
         player++;
-        }
-    }
-    while (i ==  - 1);
+   }
+    while (i == -1);
 
     board();
 
     if (i == 1)
-        printf("==>\aPlayer %d win ", --player);
+        printf("==>\aPlayer %d win",--player);
     else
         printf("==>\aGame draw");
 
