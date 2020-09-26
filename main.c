@@ -4,7 +4,6 @@ int choice;
 int i;
 char square[3][3] = {{'1', '2','3'} ,{'4', '5', '6'} ,{'7', '8', '9'}};
 
-
 void board()
 {
     system("cls");
@@ -20,6 +19,7 @@ void board()
     printf("      %c  |   %c  |   %c   \n", square[2][0], square[2][1], square[2][2]);
     printf("         |      |      \n");
 }
+
 
 
 int insert(int choice,char mark)
@@ -58,7 +58,6 @@ int insert(int choice,char mark)
             getch();
         }
 }
-
 
 int isWinning()
 {
